@@ -4,7 +4,7 @@ from office365.sharepoint.files.file import File
 import logging
 import os
 
-logger = logging.getLogger('zzz.sharepoint.sharepoint_client')
+logger = logging.getLogger('sharepoint.sharepoint_client')
 
 class SharepointClient:
     def __init__(self,
@@ -82,11 +82,11 @@ class SharepointClient:
 if __name__=='__main__':
     share = SharepointClient('user', 'pwd', 'https://xxx.sharepoint.com/sites/Team/')
     
-    file_list = share.list_folder(folder_path='/sites/Team/Shared%20Documents/Controlling')
+    file_list = share.list_folder(folder_path='/sites/Team/Shared%20Documents/')
     print(file_list)
     
     file_response = share.download_from_sharepoint(file_name='test.xlsx', file_path='/sites/Team/Shared%20Documents/Controlling/file.xlsx')
     print(file_response)
     
     
-    upload = share.upload_to_sharepoint(file_path='./test.xlsx', target_path='/sites/Team/Shared%20Documents/Controlling')
+    upload = share.upload_to_sharepoint(file_path='./test.xlsx', target_path='/sites/Team/Shared%20Documents/')
